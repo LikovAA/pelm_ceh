@@ -6,7 +6,7 @@ class PelmeniApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Пельменный цех")
-        self.root.geometry("800x600")
+        self.root.geometry("1200x650")
         
         # Основной контейнер
         main_frame = ttk.Frame(root, padding="10")
@@ -49,20 +49,15 @@ class PelmeniApp:
         calculate_btn = ttk.Button(input_frame, text="Рассчитать", command=self.calculate)
         calculate_btn.grid(row=len(labels), column=0, columnspan=2, pady=(15, 0))
         
-        # Фрейм вывода результатов
+        # Фрейм вывода результатов - увеличенная высота
         output_frame = ttk.LabelFrame(main_frame, text="Результаты расчёта", padding="15")
         output_frame.grid(row=1, column=1, sticky=(tk.W, tk.E, tk.N, tk.S))
         output_frame.columnconfigure(0, weight=1)
         
-        # Текстовое поле для вывода результатов
-        self.result_text = tk.Text(output_frame, height=15, width=40, 
+        # Текстовое поле для вывода результатов - увеличенная высота
+        self.result_text = tk.Text(output_frame, height=22, width=40, 
                                   font=("Courier New", 10), wrap=tk.WORD)
         self.result_text.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
-        
-        # Добавляем прокрутку
-        scrollbar = ttk.Scrollbar(output_frame, orient=tk.VERTICAL, command=self.result_text.yview)
-        scrollbar.grid(row=0, column=1, sticky=(tk.N, tk.S))
-        self.result_text.configure(yscrollcommand=scrollbar.set)
         
         # Кнопка очистки
         clear_btn = ttk.Button(output_frame, text="Очистить результаты", command=self.clear_results)
