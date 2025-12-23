@@ -29,7 +29,7 @@ Pline_farsh = (100 - a) * Pline / 100
                               #Pline_farsh - производительность линии подготовки фарша
 
 n_cutter = Pline_farsh / pcut #pcut - производительность куттера
-                              #n_cutter - количество куттерoв
+                              #n_cutter - количество куттерoвв
 
 #Вывод результатов
 print('Количество пельменных автоматов -', math.ceil(n_pelm_avt))
